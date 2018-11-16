@@ -1,0 +1,53 @@
+article>h1{
+  font-size: 60px;
+  text-align: center;
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+section>h2{
+  font-size: 30px;
+  left:50px;
+  color:red;
+}
+
+h2>p{
+  font-size: 30px;
+}
+
+html{
+
+  background: url(background.jpg) no-repeat center fixed;
+  background-size: cover;
+  font-style: oblique;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+
+@-webkit-keyframes example {
+    from {colo:black;}
+    to {color:red;}
