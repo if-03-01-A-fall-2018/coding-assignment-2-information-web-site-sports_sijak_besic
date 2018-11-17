@@ -62,9 +62,6 @@ body > section > ol  {
   list-style-type: disc;
 }
 
-ol>p{
-  margin-left: 50px;
-}
 
 @-webkit-keyframes example {
     from {colo:black;}
