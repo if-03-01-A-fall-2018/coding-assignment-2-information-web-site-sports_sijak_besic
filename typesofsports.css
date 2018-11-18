@@ -22,6 +22,7 @@ html{
   background: url(background.jpg) no-repeat center fixed;
   background-size: cover;
   font-family: serif;
+  font-size: 20px;
 }
 
 ul {

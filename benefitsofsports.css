@@ -1,3 +1,30 @@
+article>h1{
+  font-size: 60px;
+  text-align: center;
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+section>h2{
+  font-size: 30px;
+  left:50px;
+  color:red;
+}
+
+h2~p{
+  font-size: 20px;
+  margin-left: 310px;
+}
+
+html{
+
+  background: url(background.jpg) no-repeat center fixed;
+  background-size: cover;
+  font-family: serif;
+  font-size: 20px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -18,6 +45,20 @@ ul>li a {
     text-decoration: none;
 }
 
-li a:hover {
+ul>li a:hover {
     background-color: #111;
 }
+
+h2+img{
+  float:left;
+}
+
+ol{
+  font-size: 20px;
+  margin-left: 310px;
+  list-style-type: disc;
+}
+
+@-webkit-keyframes example {
+    from {colo:black;}
+    to {color:red;}
