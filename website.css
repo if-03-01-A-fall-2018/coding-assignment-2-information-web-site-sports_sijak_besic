@@ -57,6 +57,10 @@ p~ol{
   list-style-type: disc;
 }
 
+img{
+  margin-left: 380px;
+}
+
 @-webkit-keyframes example {
-    from {colo:black;}
+    from {color:black;}
     to {color:red;}
