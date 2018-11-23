@@ -14,11 +14,16 @@ article>h1{
   -webkit-animation-iteration-count: infinite;
 }
 
+h3{
+  font-size: 25px;
+  left:50px;
+  text-decoration: underline;
+}
+
 h2{
   font-size: 30px;
   left:50px;
   color:red;
-  text-align: center;
 }
 
 ul {
@@ -50,13 +55,17 @@ body > section > img {
 
   float:left;
 }
-body > section >p {
+p.first {
   margin-left:240px;
 
 }
 body > section > ol  {
   margin-left: 240px;
   list-style-type: disc;
+}
+
+h3>p{
+  margin-left: 1px;
 }
 
 @-webkit-keyframes example {
