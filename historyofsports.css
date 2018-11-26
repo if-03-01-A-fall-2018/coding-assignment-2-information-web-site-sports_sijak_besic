@@ -18,6 +18,10 @@ h2~p{
 
 }
 
+p.definition{
+  margin-left: 0;
+}
+
 html{
 
   background: url(background.jpg) no-repeat center fixed;
