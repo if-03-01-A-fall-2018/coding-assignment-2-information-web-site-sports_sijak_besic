@@ -1,0 +1,65 @@
+article>h1{
+  font-size: 60px;
+  text-align: center;
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+h2{
+  font-size: 30px;
+  left:50px;
+  color:red;
+  text-align: center;
+}
+
+p{
+  font-size: 20px;
+
+}
+
+html{
+
+  font-family: serif;
+  background: url(background.jpg) no-repeat center fixed;
+  background-size: cover;
+  font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+ul>li {
+    float: left;
+}
+
+ul>li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul>li a:hover {
+    background-color: #111;
+}
+
+p~ol{
+  text-align: center;
+  font-size: 20px;
+  list-style-type: disc;
+}
+
+img{
+  margin-left: 380px;
+}
+
+@-webkit-keyframes example {
+    from {color:black;}
+    to {color:red;}
