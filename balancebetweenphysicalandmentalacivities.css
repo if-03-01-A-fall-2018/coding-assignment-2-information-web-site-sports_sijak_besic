@@ -51,7 +51,7 @@ ul>li a:hover {
 }
 
 
-body > section > img {
+img{
 
   float:left;
 }
@@ -59,7 +59,7 @@ p.first {
   margin-left:240px;
 
 }
-body > section > ol  {
+ol  {
   margin-left: 240px;
   list-style-type: disc;
 }
