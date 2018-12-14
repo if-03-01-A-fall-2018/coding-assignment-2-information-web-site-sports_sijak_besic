@@ -12,8 +12,9 @@ section>h2{
   color:red;
 }
 
-h2~p{
+img~p{
   font-size: 20px;
+  margin-left: 310px;
 
 }
 
