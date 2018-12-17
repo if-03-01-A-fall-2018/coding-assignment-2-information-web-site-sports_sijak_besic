@@ -14,13 +14,7 @@ section>h2{
 
 h2~p{
   font-size: 20px;
-  margin-left: 210px;
-}
-
-h3{
-  font-size: 25px;
-  left:50px;
-  text-decoration: underline;
+  margin-left: 310px;
 }
 
 html{
@@ -59,6 +53,20 @@ h2+img{
   float:left;
 }
 
+p~ol{
+  margin-left: 310px;
+  font-size: 20px;
+  list-style-type: disc;
+}
+
+div{
+  font-size: 20px;
+  margin-left: 310px;
+}
+
+br{
+  clear:both;
+}
 
 @-webkit-keyframes example {
     from {colo:black;}

@@ -12,10 +12,9 @@ section>h2{
   color:red;
 }
 
-img~p{
+h2~p{
   font-size: 20px;
-  margin-left: 310px;
-
+  margin-left: 210px;
 }
 
 h3{
@@ -60,10 +59,8 @@ h2+img{
   float:left;
 }
 
-ol{
-  font-size: 20px;
-  margin-left: 310px;
-  list-style-type: disc;
+br{
+  clear:both;
 }
 
 @-webkit-keyframes example {

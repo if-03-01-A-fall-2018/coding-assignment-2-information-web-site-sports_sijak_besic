@@ -6,22 +6,24 @@ article>h1{
   -webkit-animation-iteration-count: infinite;
 }
 
-section>h2{
+h2{
   font-size: 30px;
   left:50px;
   color:red;
+  text-align: center;
 }
 
-h2~p{
+p{
   font-size: 20px;
-  margin-left: 310px;
+  text-align: center;
+  text-decoration: underline;
 }
 
 html{
 
+  font-family: serif;
   background: url(background.jpg) no-repeat center fixed;
   background-size: cover;
-  font-family: serif;
   font-size: 20px;
 }
 
@@ -49,21 +51,17 @@ ul>li a:hover {
     background-color: #111;
 }
 
-h2+img{
-  float:left;
-}
-
 p~ol{
-  margin-left: 310px;
+  text-align: center;
   font-size: 20px;
   list-style-type: disc;
+  list-style-position: inside;
 }
 
-div{
-  font-size: 20px;
-  margin-left: 310px;
+img{
+  margin-left: 380px;
 }
 
 @-webkit-keyframes example {
-    from {colo:black;}
+    from {color:black;}
     to {color:red;}
