@@ -2,11 +2,12 @@ article>h1{
   font-size: 60px;
   text-align: center;
   -webkit-animation-name: example;
-  -webkit-animation-duration: 6s;
+  -webkit-animation-duration: 4s;
   -webkit-animation-iteration-count: infinite;
 }
 
 section>h2{
+  text-shadow: 1px 1px 3px black;
   font-size: 30px;
   left:50px;
   color:red;
@@ -31,6 +32,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: white;
+    border-radius: 25px;
 }
 
 ul>li {
@@ -43,6 +45,7 @@ ul>li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-radius: 25px;
 }
 
 ul>li a:hover {
@@ -69,5 +72,10 @@ br{
 }
 
 @-webkit-keyframes example {
-    from {colo:black;}
-    to {color:red;}
+0%   {color: red;}
+25%  {color: black;}
+50%  {color: red;}
+75% {color:black;}
+100% {color: red;}
+
+}
