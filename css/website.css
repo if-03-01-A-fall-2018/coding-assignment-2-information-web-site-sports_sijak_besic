@@ -45,7 +45,7 @@ ul>li a {
     display: block;
     color: red;
     text-align: center;
-    padding: 14px 27px;
+    padding: 14px 8px;
     text-decoration: none;
     border-radius: 25px;
 }
@@ -62,7 +62,9 @@ p~ol{
 }
 
 img{
-  margin-left: 60px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-left: 50px;
 }
 
 @-webkit-keyframes example {
