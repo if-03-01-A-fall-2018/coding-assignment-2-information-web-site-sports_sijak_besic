@@ -194,7 +194,7 @@ var EventedLoop = require('eventedloop');
 			movingObjects.each(function (movingObject, i) {
 				movingObject.cycle(dContext);
 			});
-			
+
 			staticObjects.cull();
 			staticObjects.each(function (staticObject, i) {
 				if (staticObject.cycle) {
@@ -224,7 +224,7 @@ var EventedLoop = require('eventedloop');
 			movingObjects.each(function (movingObject, i) {
 				movingObject.draw(dContext);
 			});
-			
+
 			staticObjects.each(function (staticObject, i) {
 				if (staticObject.draw) {
 					staticObject.draw(dContext, 'main');
@@ -751,7 +751,7 @@ if (typeof navigator !== 'undefined') {
 			}
 
 			sup.cycle();
-			
+
 			that.checkHittableObjects();
 		};
 
@@ -1102,7 +1102,7 @@ if (typeof module !== 'undefined') {
 						currentX += Math.min(that.getSpeedX(), Math.abs(currentX - that.movingToward[0]));
 					}
 				}
-				
+
 				if (typeof that.movingToward[1] !== 'undefined') {
 					if (currentY > that.movingToward[1]) {
 						currentY -= Math.min(that.getSpeedY(), Math.abs(currentY - that.movingToward[1]));
@@ -1146,7 +1146,7 @@ if (typeof module !== 'undefined') {
 				if (Object.isString(cx) && (cx.first() === '+' || cx.first() === '-')) incrementX(cx);
 				else that.canvasX = cx;
 			}
-			
+
 			if (cy) {
 				if (Object.isString(cy) && (cy.first() === '+' || cy.first() === '-')) incrementY(cy);
 				else that.canvasY = cy;
@@ -1611,7 +1611,6 @@ function startNeverEndingGame (images) {
 			'Travelled 0m',
 			'High Score: ' + highScore,
 			'Skiers left: ' + livesLeft,
-			'Created by Dan Hough (@basicallydan)'
 		],
 		position: {
 			top: 15,
@@ -1652,7 +1651,6 @@ function startNeverEndingGame (images) {
 				'Travelled ' + distanceTravelledInMetres + 'm',
 				'Skiers left: ' + livesLeft,
 				'High Score: ' + highScore,
-				'Created by Dan Hough (@basicallydan)',
 				'Current Speed: ' + player.getSpeed()/*,
 				'Skier Map Position: ' + player.mapPosition[0].toFixed(1) + ', ' + player.mapPosition[1].toFixed(1),
 				'Mouse Map Position: ' + mouseMapPosition[0].toFixed(1) + ', ' + mouseMapPosition[1].toFixed(1)*/
@@ -1667,7 +1665,7 @@ function startNeverEndingGame (images) {
 	});
 
 	game.addUIElement(infoBox);
-	
+
 	$(mainCanvas)
 	.mousemove(function (e) {
 		game.setMouseX(e.pageX);
@@ -2840,7 +2838,7 @@ if (typeof module !== 'undefined') {
 			var intervalAmount = intervalInfo.amount;
 
 			this.intervalsToEmit[+intervalAmount] = _.union(this.intervalsToEmit[+intervalAmount] || [], [e]);
-			
+
 			if (determineIntervalLength() && this.isStarted()) {
 				this.stop().start();
 			}
@@ -5273,16 +5271,16 @@ Hammer.detection = {
       , interimAngle
       , interimDirection
       , velocity = this.current.velocity;
-  
+
     if (lastVEv !== false && ev.timeStamp - lastVEv.timeStamp > Hammer.UPDATE_VELOCITY_INTERVAL) {
-  
+
         velocity =  Hammer.utils.getVelocity(ev.timeStamp - lastVEv.timeStamp, ev.center.pageX - lastVEv.center.pageX, ev.center.pageY - lastVEv.center.pageY);
         this.current.lastVEvent = ev;
-  
+
         if (velocity.x > 0 && velocity.y > 0) {
             this.current.velocity = velocity;
         }
-  
+
     } else if(this.current.velocity === false) {
         velocity = Hammer.utils.getVelocity(delta_time, delta_x, delta_y);
         this.current.velocity = velocity;
