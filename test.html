@@ -60,8 +60,19 @@ canvas { background: #a5bd7b; display: block; margin: 0 auto; }
  <div class="modal-content">
    <span class="close">&times;</span>
 
+
    <canvas id="myCanvas" width="300" height="250"></canvas>
    <script>
+
+   function pressedSpaceBar(event) {
+
+     var x = event.pressedSpaceBar;
+     if(x===32)
+     {
+       return;
+     }
+
+   }
 
    var canvas = document.getElementById('myCanvas');
    var ctx = canvas.getContext("2d");
