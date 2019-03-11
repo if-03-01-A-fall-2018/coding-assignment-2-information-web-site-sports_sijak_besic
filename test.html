@@ -60,19 +60,12 @@ canvas { background: #a5bd7b; display: block; margin: 0 auto; }
  <div class="modal-content">
    <span class="close">&times;</span>
 
-
    <canvas id="myCanvas" width="300" height="250"></canvas>
    <script>
 
-   function pressedSpaceBar(event) {
-
-     var x = event.pressedSpaceBar;
-     if(x===32)
-     {
-       return;
-     }
-
-   }
+   node.addEventListener('keydown', function(event) {
+    const key = event.key; 
+    });
 
    var canvas = document.getElementById('myCanvas');
    var ctx = canvas.getContext("2d");
@@ -312,7 +305,6 @@ canvas { background: #a5bd7b; display: block; margin: 0 auto; }
    // Defines what functions are fired when keydown or keyup event triggers
    document.addEventListener("keydown", footBall.controls.keyDownHandler, false);
    document.addEventListener("keyup", footBall.controls.keyUpHandler, false);
-
    </script>
 
 
@@ -321,6 +313,7 @@ canvas { background: #a5bd7b; display: block; margin: 0 auto; }
 </div>
 
 <script>
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
