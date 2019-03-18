@@ -48,7 +48,7 @@ var footBall = {
     nextShotTime:0,
 
     // delay until next shot will run
-    delayUntilNextShot:3000,
+    delayUntilNextShot:4000,
 
     shapes : {
         ball: function (){
@@ -233,6 +233,7 @@ var footBall = {
 footBall.drawField();
 footBall.nextShotTime=footBall.delayUntilNextShot;
 requestAnimationFrame(footBall.draw);
+
 
 // Defines what functions are fired when keydown or keyup event triggers
 document.addEventListener("keydown", footBall.controls.keyDownHandler, false);
