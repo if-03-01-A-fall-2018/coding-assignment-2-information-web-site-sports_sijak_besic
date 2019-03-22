@@ -2,6 +2,8 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext("2d");
 
+var backgroundImage = new Image();
+backgroundImage.src = "goal.jpg"; 
 
 var x = canvas.width/2;
 var y = 50;
@@ -15,7 +17,6 @@ var ballRadius = 15;
 
 var goal_height = 60;
 var goal_width = 300;
-
 
 var goalieHeight = 22;
 var goalieWidth = 63;
@@ -88,7 +89,6 @@ var footBall = {
 
     drawField: function(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         footBall.shapes.ball();
         footBall.shapes.goal();
         footBall.shapes.goalie();
