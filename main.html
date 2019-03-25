@@ -8,6 +8,14 @@
   </head>
   <body>
     <article>
+
+      <div class="dropdown">
+        <button class="dropbtn">Wanna play a game? :)</button>
+        <div class="dropdown-content">
+          <a href="test.html">YES!</a>
+        </div>
+        </div>
+
       <h1>SPORTS</h1>
 
     <ul>
@@ -39,4 +47,23 @@
       </section>
       </article>
   </body>
+  <script>
+
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
 </html>

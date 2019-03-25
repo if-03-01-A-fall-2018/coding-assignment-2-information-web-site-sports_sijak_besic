@@ -1,0 +1,26 @@
+html{
+
+  font-family: serif;
+  background: url(background.jpg) no-repeat center fixed;
+  background-size: cover;
+  font-size: 20px;
+}
+
+h1{
+  font-size: 60px;
+  text-align: center;
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+}
+p{
+  text-align: center;
+}
+@-webkit-keyframes example {
+0%   {color: red;}
+25%  {color: black;}
+50%  {color: red;}
+75% {color:black;}
+100% {color: red;}
+
+}
