@@ -16,11 +16,18 @@ h1{
 p{
   text-align: center;
 }
-@-webkit-keyframes example {
-0%   {color: red;}
-25%  {color: black;}
-50%  {color: red;}
-75% {color:black;}
-100% {color: red;}
 
+@-webkit-keyframes example {
+  0%   {color: red;}
+  25%  {color: black;}
+  50%  {color: red;}
+  75% {color:black;}
+  100% {color: red;}
+}
+
+#myCanvas {
+  background-image: url("../pictures/goal.jpg");
+  /* background: #a5bd7b; */
+  display: block;
+  margin: 0 auto;
 }

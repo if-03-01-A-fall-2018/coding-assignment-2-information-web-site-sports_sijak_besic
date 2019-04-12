@@ -3,7 +3,7 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext("2d");
 
 var backgroundImage = new Image();
-backgroundImage.src = "pictures/goal.jpg"; 
+backgroundImage.src = "pictures/goal.jpg";
 
 var x = canvas.width/2;
 var y = 50;
