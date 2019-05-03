@@ -17,6 +17,20 @@ p{
   text-align: center;
 }
 
+button{
+  color: red;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 20px 30px;
+  font-size: 15px;
+
+}
+button:hover{
+  background-color: black;
+}
+
 @-webkit-keyframes example {
   0%   {color: red;}
   25%  {color: black;}

@@ -1,7 +1,3 @@
-window.onload = function() {
-  footBall.drawField();
-}
-
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext("2d");
 
@@ -18,10 +14,13 @@ var ballRadius = 15;
 var goal_height = 60;
 var goal_width = 300;
 
-var goalieHeight = 22;
-var goalieWidth = 63;
+var goalieHeight = 20;
+var goalieWidth = 70;
 var goalieX = (canvas.width-goalieWidth)/2;
 var goalieY = (canvas.height - goal_height) - 30;
+
+var rightPressed = false;
+var leftPressed = false;
 
 var goalkeeper_blocked = 0;
 var goalkeeper_missed = 0;
@@ -32,7 +31,6 @@ var attempt2 = false;
 var attempt3 = false;
 var attempt4=false;
 var attempt5=false;
-
 var footBall = {
 
     isShooting:false,
@@ -45,7 +43,7 @@ var footBall = {
         ball: function (){
             ctx.beginPath();
             ctx.arc(x, y, ballRadius, 0, Math.PI*2, false);
-            ctx.fillStyle = "red";
+            ctx.fillStyle = "black";
             ctx.fill();
             ctx.closePath();
         },
@@ -53,7 +51,7 @@ var footBall = {
         goal : function (){
             ctx.beginPath();
             ctx.rect((canvas.width - goal_width) / 2 , canvas.height - goal_height, goal_width, goal_height);
-            ctx.strokeStyle = "#000000";
+            ctx.strokeStyle = "white";
             ctx.stroke();
             ctx.closePath();
         },
@@ -61,7 +59,7 @@ var footBall = {
         goalie : function(){
             ctx.beginPath();
             ctx.rect(goalieX, goalieY, goalieWidth, goalieHeight);
-            ctx.fillStyle = "#666666";
+            ctx.fillStyle = "white";
             ctx.fill();
             ctx.closePath();
         },
@@ -87,8 +85,54 @@ var footBall = {
 
     },
 
+    controls : {
+        keyDownHandler : function (e){
+            if(e.keyCode == 39) {
+                rightPressed = true;
+            }
+            else if(e.keyCode == 37) {
+                leftPressed = true;
+            }
+
+        },
+
+        keyUpHandler : function(e){
+            if(e.keyCode == 39) {
+                rightPressed = false;
+            }
+            else if(e.keyCode == 37) {
+                leftPressed = false;
+            }
+
+        }
+
+    },
+
+    calculateScore : function(){
+        if(goalkeeper_missed > goalkeeper_blocked){
+            alert("GAME OVER! YOU HAVE LOST!");
+            document.location.reload();
+
+        } else {
+            alert("GAME OVER! YOU HAVE WON!");
+            document.location.reload();
+        }
+    },
+
+    resetShapePositions : function(){
+        x = canvas.width/2;
+        y = 50;
+
+        dx = x_options[Math.floor(Math.random() * x_options.length)];
+        dy = 5;
+
+        goalieX = (canvas.width-goalieWidth)/2;
+
+    },
+
     drawField: function(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         footBall.shapes.ball();
         footBall.shapes.goal();
         footBall.shapes.goalie();
@@ -97,4 +141,70 @@ var footBall = {
         footBall.shapes.attempts();
     },
 
+    draw : function(currentTime){
+
+        if(rightPressed && goalieX < canvas.width-goalieWidth) {
+            goalieX += 7;
+        }
+        else if(leftPressed && goalieX > 0) {
+          goalieX -= 7;
+        }
+
+        footBall.drawField();
+
+        if(!footBall.isShooting){
+            if(currentTime>footBall.nextShotTime){
+                footBall.isShooting=true;
+            }else{
+                requestAnimationFrame(footBall.draw);
+                return;
+            }
+        }
+
+        x += dx;
+        y += dy;
+        if(y + dy > canvas.height - goal_height) {
+
+            footBall.isShooting=false;
+            footBall.nextShotTime=currentTime+footBall.delayUntilNextShot;
+
+            attempts_left--;
+            goalkeeper_missed++;
+            if (!attempts_left){
+                footBall.calculateScore();
+            }
+            else {
+                footBall.resetShapePositions();
+            }
+
+        }
+        else if (x  > goalieX && x  < goalieX + goalieWidth && y + dy > goalieY - ballRadius){
+
+            footBall.isShooting=false;
+            footBall.nextShotTime=currentTime+footBall.delayUntilNextShot;
+
+            attempts_left--;
+            goalkeeper_blocked++;
+
+            if (!attempts_left){
+                footBall.calculateScore();
+            }
+            else {
+                footBall.resetShapePositions();
+
+            }
+
+        }
+
+        requestAnimationFrame(footBall.draw);
+    }
+
 }
+
+footBall.drawField();
+footBall.nextShotTime=footBall.delayUntilNextShot;
+requestAnimationFrame(footBall.draw);
+
+
+document.addEventListener("keydown", footBall.controls.keyDownHandler, false);
+document.addEventListener("keyup", footBall.controls.keyUpHandler, false);
