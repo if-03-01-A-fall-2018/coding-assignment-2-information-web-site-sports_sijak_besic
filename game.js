@@ -45,13 +45,8 @@ var footBall = {
         ball: function (){
             ctx.beginPath();
             ctx.arc(x, y, ballRadius, 0, Math.PI*2, false);
-            ctx.clip();
-            img = new Image();
-            img.addEventListener('load', function(e) {
-              ctx.fillStyle = ctx.createPattern(this, 'no-repeat');
-              ctx.fill();
-            }, true);
-            img.src="pictures/ball.png";
+            ctx.fillStyle = "black";
+            ctx.fill();
             ctx.closePath();
         },
 
@@ -207,6 +202,7 @@ var footBall = {
     }
 
 }
+
 
 footBall.drawField();
 footBall.nextShotTime=footBall.delayUntilNextShot;
