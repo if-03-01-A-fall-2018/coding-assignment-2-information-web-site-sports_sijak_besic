@@ -69,13 +69,13 @@ var footBall = {
         score : function(){
             ctx.font = "16px Arial";
             ctx.fillStyle = "#ffffff";
-            ctx.fillText("Score: "+goalkeeper_blocked, 8, 20);
+            ctx.fillText("Kept: "+goalkeeper_blocked, 8, 20);
         },
 
         missed : function(){
             ctx.font = "16px Arial";
             ctx.fillStyle = "#ffffff";
-            ctx.fillText("Missed: "+goalkeeper_missed, 8, 40);
+            ctx.fillText("Conceded: "+goalkeeper_missed, 8, 40);
         },
 
         attempts : function(){
