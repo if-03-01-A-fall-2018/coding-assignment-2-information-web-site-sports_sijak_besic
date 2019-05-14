@@ -22,7 +22,7 @@ p{
 
 html{
 
-  font-family: serif;
+  font-family: sans-serif;
   background: url(background.jpg) no-repeat center fixed;
   background-size: cover;
   font-size: 20px;
@@ -33,8 +33,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: white;
-    border-radius: 25px;
+    background-color: black;
+
 }
 
 ul>li {
@@ -43,15 +43,15 @@ ul>li {
 
 ul>li a {
     display: block;
-    color: red;
+    color: white;
     text-align: center;
-    padding: 14px 20px;
+    padding: 14px 10px;
     text-decoration: none;
     border-radius: 25px;
 }
 
 ul>li a:hover {
-    background-color: #111;
+    color: red;
 }
 
 p~ol{
@@ -66,8 +66,8 @@ img{
 }
 
 .dropbtn {
-  background-color: white;
-  color: red;
+  background-color: black;
+  color: white;
   padding: 16px;
   font-size: 16px;
   border-radius: 25px;
@@ -83,7 +83,7 @@ img{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: black;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -98,11 +98,11 @@ img{
   border-radius: 25px;
 }
 
-.dropdown-content a:hover {background-color: #111;}
+.dropdown-content a:hover {color: red;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block}
 
-.dropdown:hover .dropbtn {background-color: #111;}
+.dropdown:hover .dropbtn {color: red;}
 
 @-webkit-keyframes example {
 0%   {color: red;}
