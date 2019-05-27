@@ -36,7 +36,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: auto;
+    overflow: hidden;
     background-color: black;
 
 }
@@ -66,8 +66,6 @@ br{
   clear:both;
 }
 
-* {box-sizing: border-box}
-body {margin:0;}
 .mySlides {display: none}
 img {vertical-align:middle;}
 
