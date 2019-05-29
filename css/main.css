@@ -37,6 +37,9 @@ ul {
 
 }
 
+ul>li {
+    float: left;
+}
 
 ul>li a {
     display: block;

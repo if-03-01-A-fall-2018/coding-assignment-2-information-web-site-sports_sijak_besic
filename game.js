@@ -26,20 +26,14 @@ var goalkeeper_blocked = 0;
 var goalkeeper_missed = 0;
 var attempts_left = 5;
 
-var attempt1 = true;
-var attempt2 = false;
-var attempt3 = false;
-var attempt4=false;
-var attempt5=false;
-
+var points=0;
+var delayNextShot=4000;
 
 var footBall = {
 
     isShooting:false,
 
     nextShotTime:0,
-
-    delayUntilNextShot:4000,
 
     shapes : {
         ball: function (){
@@ -111,13 +105,26 @@ var footBall = {
     },
 
     calculateScore : function(){
+        points=points+goalkeeper_blocked*2-goalkeeper_missed;
+        footBall.resetShapePositions();
         if(goalkeeper_missed > goalkeeper_blocked){
-            alert("GAME OVER! YOU HAVE LOST!");
+            alert("GAME OVER! YOU HAVE LOST! POINTS: "+points);
             document.location.reload();
 
         } else {
-            alert("GAME OVER! YOU HAVE WON!");
-            document.location.reload();
+            if(delayNextShot<600)
+            {
+              alert("YOU HAVE FINISHED! CONGRATULATIONS :) TOTAL POINTS: "+points);
+              delayNextShot=4000;
+              document.location.reload();
+            }
+            delayNextShot=delayNextShot-500;
+            alert("YOU HAVE WON! NOW ITS GETTING HARDER! POINTS: "+points);
+            attempts_left=5;
+            goalkeeper_blocked = 0;
+            goalkeeper_missed = 0;
+            rightPressed = false;
+            leftPressed = false;
         }
     },
 
@@ -134,7 +141,6 @@ var footBall = {
 
     drawField: function(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         footBall.shapes.ball();
         footBall.shapes.goal();
         footBall.shapes.goalie();
@@ -144,7 +150,6 @@ var footBall = {
     },
 
     draw : function(currentTime){
-
         if(rightPressed && goalieX < canvas.width-goalieWidth) {
             goalieX += 7;
         }
@@ -168,7 +173,7 @@ var footBall = {
         if(y + dy > canvas.height - goal_height) {
 
             footBall.isShooting=false;
-            footBall.nextShotTime=currentTime+footBall.delayUntilNextShot;
+            footBall.nextShotTime=currentTime+delayNextShot;
 
             attempts_left--;
             goalkeeper_missed++;
@@ -183,7 +188,7 @@ var footBall = {
         else if (x  > goalieX && x  < goalieX + goalieWidth && y + dy > goalieY - ballRadius){
 
             footBall.isShooting=false;
-            footBall.nextShotTime=currentTime+footBall.delayUntilNextShot;
+            footBall.nextShotTime=currentTime+delayNextShot;
 
             attempts_left--;
             goalkeeper_blocked++;
@@ -205,7 +210,7 @@ var footBall = {
 
 
 footBall.drawField();
-footBall.nextShotTime=footBall.delayUntilNextShot;
+footBall.nextShotTime=delayNextShot;
 requestAnimationFrame(footBall.draw);
 
 
