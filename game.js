@@ -105,7 +105,7 @@ var footBall = {
     },
 
     calculateScore : function(){
-        points=points+goalkeeper_blocked*2-goalkeeper_missed;
+        points=points+(goalkeeper_blocked*2-goalkeeper_missed);
         footBall.resetShapePositions();
         if(goalkeeper_missed > goalkeeper_blocked){
             alert("GAME OVER! YOU HAVE LOST! POINTS: "+points);
