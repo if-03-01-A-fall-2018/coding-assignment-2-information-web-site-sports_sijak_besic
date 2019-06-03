@@ -114,7 +114,7 @@ var footBall = {
         } else {
             if(delayNextShot<600)
             {
-              alert("YOU HAVE FINISHED! CONGRATULATIONS :) TOTAL POINTS: "+points);
+              alert("YOU ARE FINISHED! CONGRATULATIONS :) TOTAL POINTS: "+points);
               delayNextShot=4000;
               document.location.reload();
             }
