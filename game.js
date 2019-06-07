@@ -110,7 +110,7 @@ var footBall = {
         points=points+(goalkeeper_blocked*2-goalkeeper_missed);
         footBall.resetShapePositions();
         if(goalkeeper_missed > goalkeeper_blocked){
-            alert("GAME OVER! YOU HAVE LOST! POINTS: "+points);
+            alert("GAME OVER! YOU HAVE LOST!, "+playerName+" POINTS: "+points);
             document.location.reload();
 
         }
@@ -118,7 +118,7 @@ var footBall = {
         {
             if(delayNextShot<600)
             {
-              alert("YOU ARE FINISHED! CONGRATULATIONS"+playerName+ ":) TOTAL POINTS: "+points);
+              alert("YOU ARE FINISHED! CONGRATULATIONS "+playerName+ "! TOTAL POINTS: "+points);
               delayNextShot=4000;
               document.location.reload();
             }
@@ -126,7 +126,7 @@ var footBall = {
             {
 
               delayNextShot=delayNextShot-500;
-              alert("YOU HAVE WON! NOW ITS GETTING HARDER! POINTS: "+points);
+              alert("YOU HAVE WON!, "+playerName+ " NOW ITS GETTING HARDER! POINTS: "+points);
               attempts_left=5;
               goalkeeper_blocked = 0;
               goalkeeper_missed = 0;
@@ -216,9 +216,8 @@ var footBall = {
 
 }
 
-
-footBall.drawField();
 playerName=prompt("Enter your name!");
+footBall.drawField();
 footBall.nextShotTime=delayNextShot;
 requestAnimationFrame(footBall.draw);
 
