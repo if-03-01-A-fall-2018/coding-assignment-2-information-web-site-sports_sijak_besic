@@ -31,6 +31,10 @@ button:hover{
   color:red;
 }
 
+input{
+  text-align: center;
+}
+
 @-webkit-keyframes example {
   0%   {color: red;}
   25%  {color: black;}

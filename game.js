@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext("2d");
 
@@ -28,6 +29,7 @@ var attempts_left = 5;
 
 var points=0;
 var delayNextShot=4000;
+var playerName;
 
 var footBall = {
 
@@ -111,20 +113,26 @@ var footBall = {
             alert("GAME OVER! YOU HAVE LOST! POINTS: "+points);
             document.location.reload();
 
-        } else {
+        }
+        else
+        {
             if(delayNextShot<600)
             {
-              alert("YOU ARE FINISHED! CONGRATULATIONS :) TOTAL POINTS: "+points);
+              alert("YOU ARE FINISHED! CONGRATULATIONS"+playerName+ ":) TOTAL POINTS: "+points);
               delayNextShot=4000;
               document.location.reload();
             }
-            delayNextShot=delayNextShot-500;
-            alert("YOU HAVE WON! NOW ITS GETTING HARDER! POINTS: "+points);
-            attempts_left=5;
-            goalkeeper_blocked = 0;
-            goalkeeper_missed = 0;
-            rightPressed = false;
-            leftPressed = false;
+            else
+            {
+
+              delayNextShot=delayNextShot-500;
+              alert("YOU HAVE WON! NOW ITS GETTING HARDER! POINTS: "+points);
+              attempts_left=5;
+              goalkeeper_blocked = 0;
+              goalkeeper_missed = 0;
+              rightPressed = false;
+              leftPressed = false;
+          }
         }
     },
 
@@ -210,6 +218,7 @@ var footBall = {
 
 
 footBall.drawField();
+playerName=prompt("Enter your name!");
 footBall.nextShotTime=delayNextShot;
 requestAnimationFrame(footBall.draw);
 
