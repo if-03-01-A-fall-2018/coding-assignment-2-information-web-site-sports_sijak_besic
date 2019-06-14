@@ -31,30 +31,6 @@ var points=0;
 var delayNextShot=4000;
 var playerName;
 
-function Sleep(milliseconds) {
-   return new Promise(resolve => setTimeout(resolve, milliseconds));
-}
-
-async function test() {
-   await Sleep(5000);
-   return;
-}
-
-function SavePlayer(playername,points){
-  var data={"name":playername,"points":points};
-
-  fetch('http://localhost:3000/scores',{
-    method:'POST',
-    body:JSON.stringify(data),
-    headers:{
-      'Accept':'application/json',
-      'Content-Type':'application/json'
-    }
-  }).then(res=>res.json())
-  .then(response=>console.log('Sucess:',JSON.stringify(data)))
-  .catch(error=>console.error('Error:',error));
-}
-
 var footBall = {
 
     isShooting:false,
@@ -134,25 +110,25 @@ var footBall = {
         points=points+(goalkeeper_blocked*2-goalkeeper_missed);
         footBall.resetShapePositions();
         if(goalkeeper_missed > goalkeeper_blocked){
-            alert("GAME OVER! YOU HAVE LOST!, "+playerName+" POINTS: "+points);
             SavePlayer(playerName,points);
-            document.location.reload();
-
+            alert("GAME OVER! YOU HAVE LOST!, "+playerName+" POINTS: "+points);
+            window.location.replace("main.html");
         }
         else
         {
             if(delayNextShot<600)
             {
+              SavePlayer(playerName,points);
               alert("YOU ARE FINISHED! CONGRATULATIONS "+playerName+ "! TOTAL POINTS: "+points);
               delayNextShot=4000;
-              document.location.reload();
+              window.location.replace("main.html");
             }
             else
             {
 
               delayNextShot=delayNextShot-500;
               alert("YOU HAVE WON!, "+playerName+ " NOW ITS GETTING HARDER! POINTS: "+points);
-              SavePlayer(playerName,points);
+
               attempts_left=5;
               goalkeeper_blocked = 0;
               goalkeeper_missed = 0;
@@ -242,8 +218,22 @@ var footBall = {
 
 }
 
+function SavePlayer(playername,points){
+  var data={"name":playername,"points":points};
+
+  fetch('http://localhost:3000/scores',{
+    method:'POST',
+    body:JSON.stringify(data),
+    headers:{
+      'Accept':'application/json',
+      'Content-Type':'application/json'
+    }
+  }).then(res=>res.json())
+  .then(response=>console.log('Sucess:',JSON.stringify(data)))
+  .catch(error=>console.error('Error:',error));
+}
+
 playerName=prompt("Enter your name!");
-test();
 footBall.drawField();
 footBall.nextShotTime=delayNextShot;
 requestAnimationFrame(footBall.draw);
