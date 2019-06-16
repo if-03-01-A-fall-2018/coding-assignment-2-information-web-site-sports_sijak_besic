@@ -28,7 +28,7 @@ var goalkeeper_missed = 0;
 var attempts_left = 5;
 
 var points=0;
-var delayNextShot=4000;
+var delayNextShot=3500;
 var playerName;
 
 var footBall = {
@@ -105,9 +105,9 @@ var footBall = {
         }
 
     },
-
+    //Calculates the score at the end of every round
     calculateScore : function(){
-        points=points+(goalkeeper_blocked*2-goalkeeper_missed);
+        points=points+((goalkeeper_blocked*2)-goalkeeper_missed);
         footBall.resetShapePositions();
         if(goalkeeper_missed > goalkeeper_blocked){
             SavePlayer(playerName,points);
@@ -137,7 +137,7 @@ var footBall = {
           }
         }
     },
-
+    //
     resetShapePositions : function(){
         x = canvas.width/2;
         y = 50;
@@ -218,6 +218,7 @@ var footBall = {
 
 }
 
+//Saves Playerdata to the Server
 function SavePlayer(playername,points){
   var data={"name":playername,"points":points};
 
@@ -232,6 +233,7 @@ function SavePlayer(playername,points){
   .then(response=>console.log('Sucess:',JSON.stringify(data)))
   .catch(error=>console.error('Error:',error));
 }
+//
 
 playerName=prompt("Enter your name!");
 footBall.drawField();

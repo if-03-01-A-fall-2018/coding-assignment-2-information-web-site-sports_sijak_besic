@@ -67,6 +67,10 @@ ol  {
   list-style-type: disc;
 }
 
+ol>li{
+  margin-bottom: 5px;
+}
+
 h3>p{
   margin-left: 1px;
 }
