@@ -19,6 +19,11 @@ img~p{
 
 }
 
+p.under{
+  float: left;
+  margin-left: 7px;
+}
+
 h3{
   font-size: 25px;
   left:50px;
