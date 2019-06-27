@@ -1,5 +1,5 @@
 article>h1{
-  font-size: 55px;
+  font-size: 60px;
   text-align: center;
   -webkit-animation-name: example;
   -webkit-animation-duration: 4s;
@@ -18,11 +18,10 @@ h2~p{
 }
 
 html{
-
   background: url(background.jpg) no-repeat center fixed;
   background-size: cover;
   font-family: sans-serif;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 ul {
@@ -41,10 +40,10 @@ ul>li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 12px 10px;
+    padding: 14px 10px;
     text-decoration: none;
     border-radius: 25px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 ul>li a:hover {
